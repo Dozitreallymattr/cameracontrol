@@ -3,12 +3,7 @@ import tkMessageBox
 import subprocess
 import os
 
-
 vidnum = 0
-
-#root = Tk() #Makes the window
-#root.wm_title("Camera Controller") #Makes the title that will appear in the top left
-#root.config(background = "#FFFFFF")
 
 #def backlightcompensation():
     #v4l2-ctl -d /dev/video0 --set-ctrl  backlight_compensation=0 or 1
@@ -175,9 +170,7 @@ def toggle2():
 
 #user_input = raw_input("Enter camera number to control: ")
 user_input = '0'
-if user_input  == '0':
-    #Get current camera settings
-    
+if user_input  == '0':    
     root = Tk()
     root.wm_title("Camera Controller")
     root.attributes('-topmost', True)

@@ -26,7 +26,7 @@ def foo(event, x,y,flags,param):
   
         if event == cv2.EVENT_RBUTTONDOWN:
                 today = time.time()
-                file = "/home/pi/saves/image" + str(today) + ".png"
+                file = "/home/pi/saves/image" + str(today) + ".jpg"
                 cv2.imwrite(file,frame)
                 print("Image Saved")
 
@@ -34,7 +34,9 @@ cv2.namedWindow('input',13)
 cv2.moveWindow('input',0,0)
 
 
-while True:
+
+#while True:
+while(video.isOpened()):
         check, frame = video.read()
         cv2.setMouseCallback('input',foo)
         cv2.imshow('input', frame)
