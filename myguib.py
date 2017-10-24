@@ -21,6 +21,12 @@ def startcamera():
     colorLog.insert(0.0, "Camera Started \n")
     os.system ("python snapshot0.py &")
 
+def startvideocamera():
+    ledoff()
+    colorLog.delete(1.0,END)
+    colorLog.insert(0.0, "Video recording started \n")
+    os.system ("python vidcap.py &")
+
 def setautofocus_on():
     command="v4l2-ctl -d /dev/video" + str(vidnum) + " --set-ctrl focus_auto=1"
     process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
@@ -209,6 +215,10 @@ if user_input  == '0':
 
     startcameraBtn = Button(btnFrame, width=10, text="Start Camera", command=startcamera)
     startcameraBtn.grid(row=2,column=0, padx=10, pady=2)
+
+    startvidcameraBtn = Button(btnFrame, width=10, text="Start Video REC", command=startvideocamera)
+    startvidcameraBtn.grid(row=4,column=0, padx=10, pady=2)
+
 
     myval = checkexposurestate(0)
     if myval != 'exposure_auto: 3\n':
